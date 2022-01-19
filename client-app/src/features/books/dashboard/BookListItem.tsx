@@ -32,7 +32,7 @@ export default function BookListItem({ book }: Props) {
                                 <label> Number of pages:
                                     <span> {book.page_number}</span>
                                 </label>
-                                <label> ISBN10:
+                                <label> ISBN:
                                     <span> {book.isbn}</span>
                                 </label>
                                 <Button

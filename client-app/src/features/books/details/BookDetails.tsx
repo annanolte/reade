@@ -58,7 +58,7 @@ export default observer(function BookDetails() {
                             <label> Number of pages:
                                 <span> {book.page_number}</span>
                             </label>
-                            <label> ISBN10:
+                            <label> ISBN:
                                 <span> {book.isbn}</span>
                             </label>
                             <Button basic color='blue' content='Add to shelf' floated="right" />

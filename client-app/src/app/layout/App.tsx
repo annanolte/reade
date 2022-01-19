@@ -10,6 +10,7 @@ import { observer } from "mobx-react-lite";
 import { Route } from "react-router-dom";
 import HomePage from "../../features/home/HomePage";
 import BookDetails from "../../features/books/details/BookDetails";
+import SearchPage from "../../features/books/search/SearchPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Container style={{ marginTop: "7em" }}>
               <Route exact path="/books" component={BookDashboard} />
               <Route path="/books/:id" component={BookDetails} />
+              <Route path="/search" component={SearchPage} />
             </Container>
           </>
         )}

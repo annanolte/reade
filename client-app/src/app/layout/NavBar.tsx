@@ -11,6 +11,7 @@ export default function NavBar() {
                     Reade
                 </Menu.Item>
                 <Menu.Item as={NavLink} to='/books' name='Books' />
+                <Menu.Item as={NavLink} to='/search' name='Search' />
             </Container>
         </Menu>
     )
