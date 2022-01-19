@@ -1,26 +1,27 @@
-import React from "react";
+import { observer } from "mobx-react-lite";
+import React, { useEffect } from "react";
 import { Grid, GridColumn, List } from "semantic-ui-react";
+import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { Book } from "../../../app/models/book";
+import { useStore } from "../../../app/stores/store";
 import BookDetails from "../details/BookDetails";
 import BookList from "./BookList";
 
-interface Props {
-    books: Book[];
-    selectedBook: Book | undefined;
-    selectBook: (id:string) => void;
-    cancelSelectBook: () => void;
-}
+export default observer(function BookDashboard() {
+    const {bookStore} = useStore();
+    const {loadBooks, bookRegistry} = bookStore;
 
-export default function BookDashboard({books, selectedBook, selectBook, cancelSelectBook}: Props) {
+    useEffect(() => {
+      if (bookRegistry.size <= 1) loadBooks();
+    }, [bookRegistry.size, loadBooks])
+  
+    if (bookStore.loadingInitial) return <LoadingComponent content='Loading app' />
+
     return (
         <Grid>
-            <Grid.Column width='8'>
-                <BookList books={books} selectBook={selectBook}/>
-            </Grid.Column>
-            <Grid.Column width='8'>
-                {selectedBook &&
-                <BookDetails book={selectedBook} cancelSelectBook={cancelSelectBook}/>}
+            <Grid.Column width='16'>
+                <BookList />
             </Grid.Column>
         </Grid>
     )
-}
+})

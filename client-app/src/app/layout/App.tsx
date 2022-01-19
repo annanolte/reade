@@ -1,42 +1,34 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import axios from 'axios';
-import { Container, Header, List } from 'semantic-ui-react';
-import { Book } from '../models/book';
-import NavBar from './NavBar';
-import BookDashboard from '../../features/books/dashboard/BookDashboard';
+import React, { Fragment, useEffect, useState } from "react";
+import { Button, Container, Header, List } from "semantic-ui-react";
+import { Book } from "../models/book";
+import NavBar from "./NavBar";
+import BookDashboard from "../../features/books/dashboard/BookDashboard";
+import agent from "../api/agent";
+import LoadingComponent from "./LoadingComponents";
+import { useStore } from "../stores/store";
+import { observer } from "mobx-react-lite";
+import { Route } from "react-router-dom";
+import HomePage from "../../features/home/HomePage";
+import BookDetails from "../../features/books/details/BookDetails";
 
 function App() {
-  const [books, setBooks] = useState<Book[]>([]);
-  const [selectedBook, setSelectedBook] = useState<Book | undefined>(undefined);
-
-  useEffect(() => {
-    axios.get<Book[]>('http://localhost:5000/api/books').then(response => {
-      setBooks(response.data);
-    })
-  }, [])
-
-  function handleSelectBook(id: string) {
-    setSelectedBook(books.find(x => x.id === id))
-  }
-
-  function handleCancelSelectBook() {
-    setSelectedBook(undefined);
-  }
-
   return (
     <>
-      <NavBar />
-      <Container style={{ marginTop: '7em' }}>
-        <BookDashboard 
-        books={books}
-        selectedBook={selectedBook}
-        selectBook={handleSelectBook}
-        cancelSelectBook={handleCancelSelectBook}
-        />
-      </Container>
-
+      <Route exact path="/" component={HomePage} />
+      <Route
+        path={"/(.+)"}
+        render={() => (
+          <>
+            <NavBar />
+            <Container style={{ marginTop: "7em" }}>
+              <Route exact path="/books" component={BookDashboard} />
+              <Route path="/books/:id" component={BookDetails} />
+            </Container>
+          </>
+        )}
+      />
     </>
   );
 }
 
-export default App;
+export default observer(App);
