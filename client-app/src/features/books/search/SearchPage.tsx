@@ -38,20 +38,20 @@ export default function SearchPage() {
                                 <Item.Image verticalAlign='middle' src={book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : ''} alt='No cover image' />
                                 <Item.Content>
                                     <Item.Header>{book.volumeInfo.title}</Item.Header>
-                                    <Item.Meta>{book.volumeInfo.authors}</Item.Meta>
+                                    <Item.Meta>{book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'No information'}</Item.Meta>
                                     <Item.Description>
-                                        <span>{book.volumeInfo.description}</span>
+                                        <span>{book.volumeInfo.description ? book.volumeInfo.description: 'No information'}</span>
                                     </Item.Description>
                                     <Item.Extra>
                                         <label>Published:
-                                            <span> {book.volumeInfo.publishedDate}</span>
+                                            <span> {book.volumeInfo.publishedDate ? book.volumeInfo.publishedDate : 'No information'}</span>
                                         </label>
                                         <label> Number of pages:
-                                            <span> {book.volumeInfo.pageCount}</span>
+                                            <span> {book.volumeInfo.pageCount ? book.volumeInfo.pageCount : 'No information'}</span>
                                         </label>
-                                        <label> ISBN: 
-                                            <span> {book.volumeInfo.industryIdentifiers ? book.volumeInfo.industryIdentifiers[0].identifier: ''}</span>
-                                        </label>                                        
+                                        <label> ISBN:
+                                            <span> {book.volumeInfo.industryIdentifiers ? book.volumeInfo.industryIdentifiers[0].identifier : 'No information'}</span>
+                                        </label>
                                     </Item.Extra>
                                 </Item.Content>
                             </Item>
@@ -61,4 +61,4 @@ export default function SearchPage() {
             </Segment>
         </Segment.Group>
     )
-}  
+} 

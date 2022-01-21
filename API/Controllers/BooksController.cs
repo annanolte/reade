@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.Books;
 using Domain.obj;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace API.Controllers
 {
+    [AllowAnonymous]
     public class BooksController : BaseAPIController
     {
         [HttpGet]
@@ -17,7 +19,7 @@ namespace API.Controllers
         {
             return await Mediator.Send(new List.Query());
         }
-
+        
         [HttpGet("{id}")] // books/id
         public async Task<ActionResult<Book>> GetBook(Guid id)
         {

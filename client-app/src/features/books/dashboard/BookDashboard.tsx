@@ -15,7 +15,7 @@ export default observer(function BookDashboard() {
       if (bookRegistry.size <= 1) loadBooks();
     }, [bookRegistry.size, loadBooks])
   
-    if (bookStore.loadingInitial) return <LoadingComponent content='Loading app' />
+    if (bookStore.loadingInitial) return <LoadingComponent content='Loading books...' />
 
     return (
         <Grid>
