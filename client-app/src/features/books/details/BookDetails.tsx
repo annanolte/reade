@@ -18,26 +18,6 @@ export default observer(function BookDetails() {
     if (loadingInitial || !book) return <LoadingComponent />;
 
     return (
-        /*<Card fluid>
-            <Image src={`/assets/categoryImages/${book.isbn}.jpg`} />
-            <Card.Content>
-                <Card.Header>{book.title}</Card.Header>
-                <Card.Meta>
-                    <span>{book.author}</span>
-                </Card.Meta>
-                <Card.Description>
-                    {book.description}
-                    {book.publication_year}
-                    {book.page_number}
-                </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-                <Button.Group widths='2'>
-                    <Button basic color='blue' content='Edit' />
-                    <Button as={Link} to='/books' basic color='grey' content='Cancel' />
-                </Button.Group>
-            </Card.Content>
-        </Card>*/
         <Segment>
             <Item.Group>
                 <Item key={book.id}>
@@ -47,16 +27,16 @@ export default observer(function BookDetails() {
                     />
                     <Item.Content>
                         <Item.Header as={Link} to={`/books/${book.id}`}>{book.title}</Item.Header>
-                        <Item.Meta>{book.author}</Item.Meta>
+                        <Item.Meta>{book.authors}</Item.Meta>
                         <Item.Description>
                             <span>{book.description}</span>
                         </Item.Description>
                         <Item.Extra>
                             <label>Publication year:
-                                <span> {book.publication_year}</span>
+                                <span> {book.publishedDate}</span>
                             </label>
                             <label> Number of pages:
-                                <span> {book.page_number}</span>
+                                <span> {book.pageCount}</span>
                             </label>
                             <label> ISBN:
                                 <span> {book.isbn}</span>

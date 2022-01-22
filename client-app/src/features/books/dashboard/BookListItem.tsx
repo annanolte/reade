@@ -17,20 +17,20 @@ export default function BookListItem({ book }: Props) {
                     <Item key={book.id}>
                         <Item.Image
                             size="small"
-                            src={`/assets/categoryImages/${book.isbn}.jpg`}
+                            src={book.image}
                         />
                         <Item.Content>
                             <Item.Header as={Link} to={`/books/${book.id}`}>{book.title}</Item.Header>
-                            <Item.Meta>{book.author}</Item.Meta>
+                            <Item.Meta>{book.authors}</Item.Meta>
                             <Item.Description>
                                 <span>{book.description}</span>
                             </Item.Description>
                             <Item.Extra>
                                 <label>Publication year:
-                                    <span> {book.publication_year}</span>
+                                    <span> {book.publishedDate}</span>
                                 </label>
                                 <label> Number of pages:
-                                    <span> {book.page_number}</span>
+                                    <span> {book.pageCount}</span>
                                 </label>
                                 <label> ISBN:
                                     <span> {book.isbn}</span>

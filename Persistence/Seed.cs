@@ -33,92 +33,72 @@ namespace Persistence
                 new Book
                 {
                     Title = "The Design of Everyday Things",
-                    Author = "Don Norman",
+                    Authors = "Don Norman",
                     ISBN = "9780465050659",
                     Description = "lorem ipsum",
-                    Publication_year = 1988,
-                    Page_number = 240,
+                    PublishedDate = "1988",
+                    PageCount = 240,
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg",
                 },
                 new Book
                 {
                     Title = "Just Kids",
-                    Author = "Patti Smith",
+                    Authors = "Patti Smith",
                     ISBN = "006621131X",
                     Description = "lorem ipsum",
-                    Publication_year = 2010,
-                    Page_number = 304,
+                    PublishedDate = "2010",
+                    PageCount = 304,
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg",
                 },
                 new Book
                 {
                     Title = "Born Standing Up",
-                    Author = "Steve Martin",
+                    Authors = "Steve Martin",
                     ISBN = "1416553649",
                     Description = "lorem ipsum",
-                    Publication_year = 2007,
-                    Page_number = 207,
+                    PublishedDate = "2007",
+                    PageCount = 207,
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg",
                 },
                 new Book
                 {
                     Title = "A Pattern Language",
-                    Author = "Christopher Alexander et al.",
+                    Authors = "Christopher Alexander et al.",
                     ISBN = "0195019199",
                     Description = "lorem ipsum",
-                    Publication_year = 1977,
-                    Page_number = 1216,
+                    PublishedDate = "1977",
+                    PageCount = 1216,
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg",
                 },
                 new Book
                 {
                     Title = "The Girl with the Lower Back Tattoo",
-                    Author = "Amy Schumer",
+                    Authors = "Amy Schumer",
                     ISBN = "1501139886",
                     Description = "lorem ipsum",
-                    Publication_year = 2016,
-                    Page_number = 323,
+                    PublishedDate = "2016",
+                    PageCount = 323,
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg",
                 },
                 new Book
                 {
                     Title = "How Buildings Learn",
-                    Author = "Stewart Brand",
+                    Authors = "Stewart Brand",
                     ISBN = "0140139966",
                     Description = "lorem ipsum",
-                    Publication_year = 1994,
-                    Page_number = 252,
+                    PublishedDate = "1994",
+                    PageCount = 252,
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg",
                 },
                 new Book
                 {
                     Title = "Understanding Comics",
-                    Author = "Scott Mccloud",
+                    Authors = "Scott Mccloud",
                     ISBN = "006097625X",
                     Description = "lorem ipsum",
-                    Publication_year = 1993,
-                    Page_number = 215,
-                },
-                new Book
-                {
-                    Title = "The Artist's Way",
-                    Author = "Julia Cameron",
-                    ISBN = "1585421464",
-                    Description = "lorem ipsum",
-                    Publication_year = 1992,
-                    Page_number = 237,
-                },
-                new Book
-                {
-                    Title = "Steal Like an Artist",
-                    Author = "Austin Kleon",
-                    ISBN = "0761169253",
-                    Description = "lorem ipsum",
-                    Publication_year = 2012,
-                    Page_number = 160,
-                },
-                new Book
-                {
-                    Title = "The Gift",
-                    Author = "Lewis Hyde",
-                    ISBN = "0394715195",
-                    Description = "lorem ipsum",
-                    Publication_year = 1979,
-                    Page_number = 327,
+                    PublishedDate = "1993",
+                    PageCount = 215,
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg",
                 }
             };
 

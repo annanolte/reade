@@ -9,10 +9,11 @@ namespace Domain.obj
     {
         public Guid Id { get; set; } 
         public string Title { get; set; }
-        public string Author { get; set; }
+        public string Authors { get; set; }
         public string ISBN { get; set; }
         public string Description { get; set; }
-        public int Publication_year { get; set; } 
-        public int Page_number { get; set; }
+        public string PublishedDate { get; set; } 
+        public int PageCount { get; set; }
+        public string Image { get; set; }
     }
 }

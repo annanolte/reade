@@ -1,9 +1,10 @@
 export interface Book {
     id: string;
     title: string;
-    author: string;
+    authors: string;
     isbn: string;
     description: string;
-    publication_year: number;
-    page_number: number;
+    publishedDate: string;
+    pageCount: number;
+    image: string;
 }

@@ -12,8 +12,5 @@ namespace Persistence
         }
 
         public DbSet<Book> Books { get; set; }
-        public DbSet<Favourite> Favourite { get; set; }
-        public DbSet<Read> Read { get; set; }
-        public DbSet<TBR> TBR { get; set; }
     }
 }
