@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.Books;
-using Domain.obj;
+using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +11,16 @@ using Persistence;
 
 namespace API.Controllers
 {
-    [AllowAnonymous]
     public class BooksController : BaseAPIController
     {
         [HttpGet]
-        public async Task<ActionResult<List<Book>>> GetBooks()
+        public async Task<ActionResult<List<BookDto>>> GetBooks()
         {
             return await Mediator.Send(new List.Query());
         }
         
         [HttpGet("{id}")] // books/id
-        public async Task<ActionResult<Book>> GetBook(Guid id)
+        public async Task<ActionResult<BookDto>> GetBook(Guid id)
         {
             return await Mediator.Send(new Details.Query{Id = id});
         }

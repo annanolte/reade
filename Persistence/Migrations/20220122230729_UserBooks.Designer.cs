@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220122230729_UserBooks")]
+    partial class UserBooks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,7 +114,7 @@ namespace Persistence.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("Domain.BookReader", b =>
+            modelBuilder.Entity("Domain.UserBooks", b =>
                 {
                     b.Property<string>("AppUserId")
                         .HasColumnType("TEXT");
@@ -124,7 +126,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("BookReaders");
+                    b.ToTable("UserBooks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -255,7 +257,7 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Domain.BookReader", b =>
+            modelBuilder.Entity("Domain.UserBooks", b =>
                 {
                     b.HasOne("Domain.AppUser", "AppUser")
                         .WithMany("Books")
@@ -264,7 +266,7 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("Domain.Book", "Book")
-                        .WithMany("Readers")
+                        .WithMany("Users")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -332,7 +334,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Book", b =>
                 {
-                    b.Navigation("Readers");
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

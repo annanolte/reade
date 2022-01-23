@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using Domain.obj;
+using Domain;
 using MediatR;
 using Persistence;
 

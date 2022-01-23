@@ -3,28 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
-using Domain.obj;
+using Domain;
 using System.Threading;
 using Persistence;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
 namespace Application.Books
 {
     public class List
     {
-        public class Query : IRequest<List<Book>> {}
+        public class Query : IRequest<List<BookDto>> { }
 
-        public class Handler : IRequestHandler<Query, List<Book>>
+        public class Handler : IRequestHandler<Query, List<BookDto>>
         {
             private readonly DataContext _context;
-            public Handler(DataContext context)
+            private readonly IMapper _mapper;
+            public Handler(DataContext context, IMapper mapper)
             {
+                _mapper = mapper;
                 _context = context;
             }
 
-            public async Task<List<Book>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<BookDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                return await _context.Books.ToListAsync();
+                var books = await _context.Books
+                    .ProjectTo<BookDto>(_mapper.ConfigurationProvider)
+                    .ToListAsync();
+
+                return books;
             }
         }
     }

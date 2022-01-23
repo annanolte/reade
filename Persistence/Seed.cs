@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain;
-using Domain.obj;
 using Microsoft.AspNetCore.Identity;
 
 namespace Persistence

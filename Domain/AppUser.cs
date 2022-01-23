@@ -8,6 +8,6 @@ namespace Domain
 {
     public class AppUser : IdentityUser
     {
-        
+        public ICollection<BookReader> Books { get; set; }
     }
 }
