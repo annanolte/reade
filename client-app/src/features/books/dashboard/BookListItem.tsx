@@ -16,21 +16,20 @@ export default function BookListItem({ book }: Props) {
                 <Item.Group>
                     <Item key={book.id}>
                         <Item.Image
-                            size="small"
-                            src={book.image}
+                            src={book.image_url}
                         />
                         <Item.Content>
                             <Item.Header as={Link} to={`/books/${book.id}`}>{book.title}</Item.Header>
-                            <Item.Meta>{book.authors}</Item.Meta>
+                            <Item.Meta>{book.authors.replace(/[\[\]']+/g, "")}</Item.Meta>
                             <Item.Description>
                                 <span>{book.description}</span>
                             </Item.Description>
                             <Item.Extra>
                                 <label>Publication year:
-                                    <span> {book.publishedDate}</span>
+                                    <span> {book.publishDate}</span>
                                 </label>
                                 <label> Number of pages:
-                                    <span> {book.pageCount}</span>
+                                    <span> {book.pages}</span>
                                 </label>
                                 <label> ISBN:
                                     <span> {book.isbn}</span>

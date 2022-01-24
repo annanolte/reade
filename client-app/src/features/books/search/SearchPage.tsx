@@ -44,7 +44,7 @@ export default function SearchPage() {
                                     </Item.Description>
                                     <Item.Extra>
                                         <label>Published:
-                                            <span> {book.volumeInfo.publishedDate ? book.volumeInfo.publishedDate : 'No information'}</span>
+                                            <span> {book.volumeInfo.publishDate ? book.volumeInfo.publishDate : 'No information'}</span>
                                         </label>
                                         <label> Number of pages:
                                             <span> {book.volumeInfo.pageCount ? book.volumeInfo.pageCount : 'No information'}</span>

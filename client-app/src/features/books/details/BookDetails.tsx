@@ -33,10 +33,10 @@ export default observer(function BookDetails() {
                         </Item.Description>
                         <Item.Extra>
                             <label>Publication year:
-                                <span> {book.publishedDate}</span>
+                                <span> {book.publishDate}</span>
                             </label>
                             <label> Number of pages:
-                                <span> {book.pageCount}</span>
+                                <span> {book.pages}</span>
                             </label>
                             <label> ISBN:
                                 <span> {book.isbn}</span>

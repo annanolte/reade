@@ -4,7 +4,7 @@ export interface Book {
     authors: string;
     isbn: string;
     description: string;
-    publishedDate: string;
-    pageCount: number;
-    image: string;
+    publishDate: string;
+    pages: number;
+    image_url: string;
 }
