@@ -22,17 +22,17 @@ export default observer(function BookDetails() {
             <Item.Group>
                 <Item key={book.id}>
                     <Item.Image
-                        size="medium"
-                        src={`/assets/categoryImages/${book.isbn}.jpg`}
+                        size="small"
+                        src={book.image_url}
                     />
                     <Item.Content>
                         <Item.Header as={Link} to={`/books/${book.id}`}>{book.title}</Item.Header>
-                        <Item.Meta>{book.authors}</Item.Meta>
+                        <Item.Meta>{book.authors.replace(/[\[\]']+/g, "")}</Item.Meta>
                         <Item.Description>
                             <span>{book.description}</span>
                         </Item.Description>
                         <Item.Extra>
-                            <label>Publication year:
+                            <label>Published:
                                 <span> {book.publishDate}</span>
                             </label>
                             <label> Number of pages:

@@ -5,6 +5,7 @@ import { Button, Item, Label, Segment } from 'semantic-ui-react';
 import { Book } from '../../../app/models/book';
 import { useStore } from '../../../app/stores/store';
 import BookListItem from './BookListItem';
+import TitleListItem from './TitleListItem';
 
 export default observer(function BookList() {
     
@@ -15,7 +16,7 @@ export default observer(function BookList() {
         <Segment>
             <Item.Group divided>
                 {booksAdd.map(book => (
-                    <BookListItem key={book.id} book={book} />
+                    <TitleListItem key={book.id} book={book} />
                 ))}
             </Item.Group>
         </Segment>

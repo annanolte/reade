@@ -15,7 +15,7 @@ export default observer(function NavBar() {
                 </Menu.Item>
                 <Menu.Item as={NavLink} to='/books' name='Books' />
                 <Menu.Item as={NavLink} to='/errors' name='Errors' />
-                <Menu.Item as={NavLink} to='/search' name='Search' />
+                <Menu.Item as={NavLink} to='/grid' name='Browse book covers' />
                 <Menu.Item position='right'>
                     <Icon name='user' size='large' />
                     <Dropdown pointing='top left' text={user?.username}>

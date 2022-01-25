@@ -17,9 +17,14 @@ import { ToastContainer } from "react-toastify";
 import NotFound from "../../features/errors/NotFound";
 import ServerError from "../../features/errors/ServerError";
 import ModalContainer from "../common/modals/ModalContainer";
+import BookGrid from "../../features/books/dashboard/BookGrid";
+import BookGridDashboard from "../../features/books/dashboard/BookGridDashboard";
+import Search from "../../features/books/dashboard/trash/Search";
+import SearchPg from "../../features/books/dashboard/trash/SearchPg";
+import SrcPg from "../../features/books/dashboard/trash/SrcPg";
 
 function App() {
-  const {commonStore, userStore} = useStore();
+  const { commonStore, userStore } = useStore();
 
   useEffect(() => {
     if (commonStore.token) {
@@ -27,9 +32,10 @@ function App() {
     } else {
       commonStore.setAppLoaded();
     }
-  }, [commonStore, userStore])
+  }, [commonStore, userStore]);
 
-  if (!commonStore.appLoaded) return <LoadingComponent content='Loading app...' />
+  if (!commonStore.appLoaded)
+    return <LoadingComponent content="Loading app..." />;
 
   return (
     <>
@@ -45,10 +51,10 @@ function App() {
               <Switch>
                 <Route exact path="/books" component={BookDashboard} />
                 <Route path="/books/:id" component={BookDetails} />
-                <Route path="/search" component={SearchPage} />
+                <Route path="/grid" component={BookGridDashboard} />
                 <Route path="/login" component={LoginForm} />
                 <Route path="/errors" component={TestErrors} />
-                <Route path='/server-error' component={ServerError} />
+                <Route path="/server-error" component={ServerError} />
                 <Route component={NotFound} />
               </Switch>
             </Container>

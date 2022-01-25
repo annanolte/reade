@@ -25,7 +25,7 @@ export default function BookListItem({ book }: Props) {
                                 <span>{book.description}</span>
                             </Item.Description>
                             <Item.Extra>
-                                <label>Publication year:
+                                <label>Published:
                                     <span> {book.publishDate}</span>
                                 </label>
                                 <label> Number of pages:
@@ -39,6 +39,13 @@ export default function BookListItem({ book }: Props) {
                                     to={`/books/${book.id}`}
                                     floated="right"
                                     content="View"
+                                    color="blue"
+                                />
+                                <Button
+                                    as={Link}
+                                    to={`/books/${book.id}/save`}
+                                    floated="right"
+                                    content="Save"
                                     color="blue"
                                 />
                             </Item.Extra>

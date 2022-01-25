@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Domain;
+using FluentValidation;
 using MediatR;
 using Persistence;
 
@@ -12,9 +13,17 @@ namespace Application.Books
 {
     public class Edit
     {
-        public class Command : IRequest 
+        public class Command : IRequest
         {
             public Book Book { get; set; }
+        }
+
+        public class CommandValidator : AbstractValidator<Command>
+        {
+            public CommandValidator()
+            {
+                RuleFor(x => x.Book).SetValidator(new BookValidator());
+            }
         }
 
         public class Handler : IRequestHandler<Command>

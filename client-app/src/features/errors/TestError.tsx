@@ -28,7 +28,7 @@ export default function TestErrors() {
     }
 
     function handleValidationError() {
-        axios.post(baseUrl + 'books', {}).catch(err => setErrors(err));
+        axios.post(baseUrl + 'books', {}).catch(err => setErrors(err.response));
     }
 
     return (
