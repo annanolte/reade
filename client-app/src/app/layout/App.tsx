@@ -10,7 +10,6 @@ import { observer } from "mobx-react-lite";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "../../features/home/HomePage";
 import BookDetails from "../../features/books/details/BookDetails";
-import SearchPage from "../../features/books/search/SearchPage";
 import LoginForm from "../../features/users/LoginForm";
 import TestErrors from "../../features/errors/TestError";
 import { ToastContainer } from "react-toastify";
@@ -19,9 +18,8 @@ import ServerError from "../../features/errors/ServerError";
 import ModalContainer from "../common/modals/ModalContainer";
 import BookGrid from "../../features/books/dashboard/BookGrid";
 import BookGridDashboard from "../../features/books/dashboard/BookGridDashboard";
-import Search from "../../features/books/dashboard/trash/Search";
-import SearchPg from "../../features/books/dashboard/trash/SearchPg";
-import SrcPg from "../../features/books/dashboard/trash/SrcPg";
+import UserBooks from "../../features/profiles/UserBooks";
+import ProfilePage from "../../features/profiles/ProfilePage";
 
 function App() {
   const { commonStore, userStore } = useStore();
@@ -52,6 +50,7 @@ function App() {
                 <Route exact path="/books" component={BookDashboard} />
                 <Route path="/books/:id" component={BookDetails} />
                 <Route path="/grid" component={BookGridDashboard} />
+                <Route path='/profiles/:username' component={ProfilePage} />
                 <Route path="/login" component={LoginForm} />
                 <Route path="/errors" component={TestErrors} />
                 <Route path="/server-error" component={ServerError} />

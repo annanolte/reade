@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Button, Container, Dropdown, Icon, Item, Menu } from 'semantic-ui-react';
 import { useStore } from '../stores/store';
 
@@ -13,9 +13,10 @@ export default observer(function NavBar() {
                     <img src="/assets/bookmark-icon.png" alt="logo" style={{marginRight: '10px'}}/>
                     Reade
                 </Menu.Item>
-                <Menu.Item as={NavLink} to='/books' name='Books' />
+                <Menu.Item as={NavLink} to='/books' name='Search' icon='search'/>
+                <Menu.Item as={NavLink} to='/grid' name='Browse books' icon='book'/>
+                <Menu.Item as={NavLink} to={`/profiles/${user?.username}`} name='Saved Books' icon='bookmark'/>
                 <Menu.Item as={NavLink} to='/errors' name='Errors' />
-                <Menu.Item as={NavLink} to='/grid' name='Browse book covers' />
                 <Menu.Item position='right'>
                     <Icon name='user' size='large' />
                     <Dropdown pointing='top left' text={user?.username}>

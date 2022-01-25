@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Button, Card, Icon, Image, Item, Segment } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { Book } from "../../../app/models/book";
+import bookStore from "../../../app/stores/bookStore";
 import { useStore } from "../../../app/stores/store";
 
 export default observer(function BookDetails() {
@@ -41,7 +42,13 @@ export default observer(function BookDetails() {
                             <label> ISBN:
                                 <span> {book.isbn}</span>
                             </label>
-                            <Button basic color='blue' content='Add to shelf' floated="right" />
+                            {book.isReading ? (
+                                <Button loading={bookStore.loading} onClick={bookStore.updateReading} basic color='red' content='Remove from shelf' floated="right" />
+                            ) : (
+                                <Button loading={bookStore.loading} onClick={bookStore.updateReading} basic color='blue' content='Add to shelf' floated="right" />
+                            )}
+
+                            
                             <Button as={Link} to='/books' basic color='grey' content='Go back' floated="right" />
                         </Item.Extra>
                     </Item.Content>

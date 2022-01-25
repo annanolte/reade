@@ -1,3 +1,5 @@
+import { Profile } from "./profile";
+
 export interface Book {
     id: string;
     title: string;
@@ -7,4 +9,6 @@ export interface Book {
     publishDate: string;
     pages: number;
     image_url: string;
+    isReading?: boolean;
+    readers?: Profile[];
 }

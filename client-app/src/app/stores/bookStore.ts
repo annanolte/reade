@@ -1,6 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
 import { Book } from "../models/book";
+import { Profile } from "../models/profile";
+import { store } from "./store";
 
 export default class BookStore {
     /*books: Book[] = [];*/
@@ -55,6 +57,12 @@ export default class BookStore {
     }
 
     private setBook = (book: Book) => {
+        const user = store.userStore.user;
+        if (user) {
+            book.isReading = book.readers!.some(
+                a => a.username === user.username
+            )
+        }
         this.bookRegistry.set(book.id, book);
     }
 
@@ -64,6 +72,30 @@ export default class BookStore {
 
     setLoadingInitial = (state: boolean) => {
         this.loadingInitial = state;
+    }
+
+    updateReading = async () => {
+        const user = store.userStore.user;
+        this.loading = true;
+        try {
+            await agent.Books.read(this.selectedBook!.id);
+            runInAction(() => {
+                if (this.selectedBook?.isReading) {
+                    this.selectedBook.readers = this.selectedBook.readers?.filter(a => a.username !== user?.username);
+                    this.selectedBook.isReading = false;
+                } else {
+                    const reader = new Profile(user!);
+                    this.selectedBook?.readers?.push(reader);
+                    this.selectedBook!.isReading = true;
+                }
+                this.bookRegistry.set(this.selectedBook!.id, this.selectedBook!)
+            })
+        } catch (error) {
+            console.log(error);
+        } finally {
+            runInAction(() => this.loading = false);
+        }
+        
     }
 
     /*selectBook = (id: string) => {

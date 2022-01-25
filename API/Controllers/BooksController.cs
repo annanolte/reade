@@ -46,7 +46,7 @@ namespace API.Controllers
         }
 
         [HttpPost("{id}/save")]
-        public async Task<IActionResult> Save(Guid id)
+        public async Task<IActionResult> Read(Guid id)
         {
             return HandleResult(await Mediator.Send(new UpdateReaders.Command{Id = id}));
         }

@@ -4,6 +4,7 @@ import { Book } from '../models/book';
 import { User, UserFormValues } from '../models/user';
 import { history } from '../..';
 import { store } from '../stores/store';
+import { Profile, UserBook } from '../models/profile';
 
 const sleep = (delay: number) => {
     return new Promise((resolve) => {
@@ -66,7 +67,8 @@ const requests = {
 
 const Books = {
     list: () => requests.get<Book[]>('/books'),
-    details: (id: string) => requests.get<Book>(`/books/${id}`)
+    details: (id: string) => requests.get<Book>(`/books/${id}`),
+    read: (id: string) => requests.post<void>(`/books/${id}/save`, {})
 }
 
 const Account = {
@@ -75,9 +77,16 @@ const Account = {
     register: (user: UserFormValues) => requests.post<User>('/account/register', user)
 }
 
+const Profiles = {
+    get: (username: string) => requests.get<Profile>(`/profiles/${username}`),
+    listBooks: (username: string) =>
+    requests.get<UserBook[]>(`/profiles/${username}/books`)
+   }
+
 const agent = {
     Books,
-    Account
+    Account,
+    Profiles
 }
 
 export default agent;
