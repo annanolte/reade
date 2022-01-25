@@ -12,6 +12,7 @@ namespace Persistence
 
         public DbSet<Book> Books { get; set; } 
         public DbSet<BookReader> BookReaders { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

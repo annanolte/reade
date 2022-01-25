@@ -16,5 +16,6 @@ namespace Domain
         public int? Pages { get; set; }
         public string Image_url { get; set; }
         public ICollection<BookReader> Readers { get; set;} = new List<BookReader>();
+        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     }
 }

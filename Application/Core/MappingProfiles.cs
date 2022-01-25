@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.Books;
+using Application.Comments;
 using Application.Profiles;
 using AutoMapper;
 using Domain;
@@ -30,7 +31,8 @@ namespace Application.Core
                 .ForMember(d => d.Authors, o => o.MapFrom(s => s.Book.Authors))
                 .ForMember(d => d.Image_url, o => o.MapFrom(s => s.Book.Image_url));
 
-            
+            CreateMap<Comment, CommentDto>()
+                .ForMember(d => d.Username, o => o.MapFrom(s => s.Author.UserName));
         }
     }
 }

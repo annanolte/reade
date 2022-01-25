@@ -6,6 +6,7 @@ import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { Book } from "../../../app/models/book";
 import bookStore from "../../../app/stores/bookStore";
 import { useStore } from "../../../app/stores/store";
+import BookDetailedChat from "./BookDetailedChat";
 
 export default observer(function BookDetails() {
     const { bookStore } = useStore();
@@ -19,7 +20,9 @@ export default observer(function BookDetails() {
     if (loadingInitial || !book) return <LoadingComponent />;
 
     return (
-        <Segment>
+
+        <>
+                <Segment>
             <Item.Group>
                 <Item key={book.id}>
                     <Item.Image
@@ -55,5 +58,9 @@ export default observer(function BookDetails() {
                 </Item>
             </Item.Group>
         </Segment>
+        <Segment>
+            <BookDetailedChat bookId={book.id} />
+        </Segment>
+        </>
     );
 })

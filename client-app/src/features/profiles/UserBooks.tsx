@@ -15,8 +15,8 @@ export default observer(function ProfileActivities() {
 
   return (
       <Grid loading={loadingBooks}>
-        <Grid.Column width={16}>
-          <Card.Group itemsPerRow={5}>
+        <Grid.Column >
+          <Card.Group itemsPerRow={8}>
             {userBooks.map((book: UserBook) => (
               <Card
                 as={Link}
