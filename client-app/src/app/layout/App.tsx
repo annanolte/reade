@@ -20,6 +20,7 @@ import BookGrid from "../../features/books/dashboard/BookGrid";
 import BookGridDashboard from "../../features/books/dashboard/BookGridDashboard";
 import UserBooks from "../../features/profiles/UserBooks";
 import ProfilePage from "../../features/profiles/ProfilePage";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   const { commonStore, userStore } = useStore();
@@ -47,12 +48,11 @@ function App() {
             <NavBar />
             <Container style={{ marginTop: "7em" }}>
               <Switch>
-                <Route exact path="/books" component={BookDashboard} />
-                <Route path="/books/:id" component={BookDetails} />
-                <Route path="/grid" component={BookGridDashboard} />
-                <Route path='/profiles/:username' component={ProfilePage} />
-                <Route path="/login" component={LoginForm} />
-                <Route path="/errors" component={TestErrors} />
+                <PrivateRoute exact path="/books" component={BookDashboard} />
+                <PrivateRoute path="/books/:id" component={BookDetails} />
+                <PrivateRoute path="/grid" component={BookGridDashboard} />
+                <PrivateRoute path='/profiles/:username' component={ProfilePage} />
+                <PrivateRoute path="/errors" component={TestErrors} />
                 <Route path="/server-error" component={ServerError} />
                 <Route component={NotFound} />
               </Switch>
