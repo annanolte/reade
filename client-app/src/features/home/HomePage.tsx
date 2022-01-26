@@ -12,7 +12,7 @@ export default observer(function HomePage() {
         <Segment inverted textAlign='center' vertical className='masthead'>
             <Container text>
                 <Header as='h1' inverted>
-                    <Image size='massive' src='/assets/bookmark-icon.png' alt='logo' style={{ marginBottom: 12 }} />
+                    <Image size='massive' src='/assets/reade-logo.png' alt='logo' style={{ marginBottom: 12 }} />
                     Reade
                 </Header>
                 {userStore.isLoggedIn ? (

@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using Application.Books;
 using Application.Core;
 using Application.Interfaces;
-using Application.Search;
-using Infrastructure.Search;
 using Infrastructure.Security;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -39,8 +37,6 @@ namespace API.Extensions
             services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
             services.AddScoped<IUserAccessor, UserAccessor>();
-            services.AddScoped<IGoogleBookAccessor, GoogleBooksAccessor>();
-            services.Configure<GoogleBooksSettings>(config.GetSection("GoogleBooks"));
             services.AddSignalR();
 
             return services;
