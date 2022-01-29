@@ -52,7 +52,7 @@ function App() {
                 <PrivateRoute exact path="/books" component={BookDashboard} />
                 <PrivateRoute path="/books/:id" component={BookDetails} />
                 <PrivateRoute path="/browse" component={BrowseDashboard} />
-                <PrivateRoute path='/profiles/:username' component={ProfilePage} />
+                <PrivateRoute path='/profile/:username' component={ProfilePage} />
                 <PrivateRoute path="/errors" component={TestErrors} />
                 <Route path="/server-error" component={ServerError} />
                 <Route component={NotFound} />

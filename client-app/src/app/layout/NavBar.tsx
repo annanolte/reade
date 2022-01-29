@@ -14,13 +14,13 @@ export default observer(function NavBar() {
                     Reade
                 </Menu.Item>
                 <Menu.Item as={NavLink} to='/books' name='Search' icon='search'/>
-                <Menu.Item as={NavLink} to='/browse' name='Browse books' icon='book'/>
-                <Menu.Item as={NavLink} to={`/profiles/${user?.username}`} name='Saved Books' icon='bookmark'/>
-                <Menu.Item as={NavLink} to='/errors' name='Errors' />
+                <Menu.Item as={NavLink} to='/browse' name='Browse' icon='book'/>
                 <Menu.Item position='right'>
                     <Icon name='user' size='large' />
-                    <Dropdown pointing='top left' text={user?.username}>
+                    <Dropdown pointing='top right'>
                         <Dropdown.Menu>
+                            <Dropdown.Header>Hi, {user?.username}!</Dropdown.Header>
+                            <Dropdown.Item as={NavLink} to={`/profile/${user?.username}`} text='My Bookshelf' icon='bookmark'/>
                             <Dropdown.Item onClick={logout} text='Logout' icon='power'></Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>

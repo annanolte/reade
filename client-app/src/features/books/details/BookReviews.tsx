@@ -73,7 +73,7 @@ export default observer(function BookReviews({ bookId }: Props) {
                         <Comment key={comment.id}>
                             <Comment.Avatar src={'/assets/user.png'} />
                             <Comment.Content>
-                                <Comment.Author as={Link} to={`/profiles/${comment.username}`}>
+                                <Comment.Author as={Link} to={`/profile/${comment.username}`}>
                                     {comment.username}
                                 </Comment.Author>
                                 <Comment.Text style={{ whiteSpace: 'pre-wrap' }}>{comment.body}</Comment.Text>

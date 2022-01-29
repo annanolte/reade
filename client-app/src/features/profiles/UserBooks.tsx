@@ -5,8 +5,8 @@ import { Card, Grid, Header, Image, Tab } from "semantic-ui-react";
 import { UserBook } from "../../app/models/profile";
 import { useStore } from "../../app/stores/store";
 
-export default observer(function ProfileActivities() {
-  const { profileStore } = useStore();
+export default observer(function ProfileBooks() {
+  const { profileStore, userStore: { user } } = useStore();
   const { loadUserBooks, profile, loadingBooks, userBooks } =
     profileStore;
   useEffect(() => {
@@ -22,7 +22,7 @@ export default observer(function ProfileActivities() {
                 as={Link}
                 to={`/books/${book.id}`}
                 key={book.id}
-                color='blue'
+                color='green'
               >
                 <Image
                   src={book.image_url}
@@ -37,6 +37,5 @@ export default observer(function ProfileActivities() {
           </Card.Group>
         </Grid.Column>
       </Grid>
-
   );
 });

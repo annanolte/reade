@@ -98,20 +98,4 @@ export default class BookStore {
         
     }
 
-    /*selectBook = (id: string) => {
-        this.selectedBook = this.bookRegistry.get(id);
-    }
-
-    cancelSelectedBook = () => {
-        this.selectedBook = undefined;
-    }*/
-
-    /*openForm = (id?: string) => {
-        id ? this.selectBook(id) : this.cancelSelectedBook();
-        this.editMode = true;
-    }
-
-    closeForm = () => {
-        this.editMode = false;
-    }*/
 }

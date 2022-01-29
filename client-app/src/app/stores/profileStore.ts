@@ -7,16 +7,11 @@ export default class ProfileStore {
     profile: Profile | null = null;
     loadingProfile = false;
     loading = false;
-    activeTab = 0;
     userBooks: UserBook[] = [];
     loadingBooks = false;
 
     constructor() {
         makeAutoObservable(this);
-    }
-
-    setActiveTab = (activeTab: any) => {
-        this.activeTab = activeTab;
     }
 
     get isCurrentUser() {

@@ -9,7 +9,7 @@ interface Props {
 
 export default function BrowseGridItem({ book }: Props) {
   return (
-    <Card as={Link} to={`/books/${book.id}`} key={book.id} color='green' fluid={true}>
+    <Card as={Link} to={`/books/${book.id}`} key={book.id} color='blue' fluid={true}>
       <Image
         src={book.image_url}
         style={{ minHeight: 100, objectFit: "cover" }}
