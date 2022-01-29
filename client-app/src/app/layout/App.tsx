@@ -16,11 +16,12 @@ import { ToastContainer } from "react-toastify";
 import NotFound from "../../features/errors/NotFound";
 import ServerError from "../../features/errors/ServerError";
 import ModalContainer from "../common/modals/ModalContainer";
-import BookGrid from "../../features/books/dashboard/BookGrid";
-import BookGridDashboard from "../../features/books/dashboard/BookGridDashboard";
+import BookGrid from "../../features/browse/BrowseGrid";
+import BookGridDashboard from "../../features/browse/BrowseDashboard";
 import UserBooks from "../../features/profiles/UserBooks";
 import ProfilePage from "../../features/profiles/ProfilePage";
 import PrivateRoute from "./PrivateRoute";
+import BrowseDashboard from "../../features/browse/BrowseDashboard";
 
 function App() {
   const { commonStore, userStore } = useStore();
@@ -50,7 +51,7 @@ function App() {
               <Switch>
                 <PrivateRoute exact path="/books" component={BookDashboard} />
                 <PrivateRoute path="/books/:id" component={BookDetails} />
-                <PrivateRoute path="/grid" component={BookGridDashboard} />
+                <PrivateRoute path="/browse" component={BrowseDashboard} />
                 <PrivateRoute path='/profiles/:username' component={ProfilePage} />
                 <PrivateRoute path="/errors" component={TestErrors} />
                 <Route path="/server-error" component={ServerError} />

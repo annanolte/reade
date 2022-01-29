@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+using System.IO;
 using Domain;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Persistence
 {
@@ -30,6 +33,19 @@ namespace Persistence
                 .WithMany(a => a.Readers)
                 .HasForeignKey(aa => aa.BookId);
             
+            builder.Entity<Book>().HasData(SeedLargData());
+            
+        }
+
+        public List<Book> SeedLargData()
+        {
+            var books = new List<Book>();
+            using (StreamReader r = new StreamReader(@"..\Persistence\bookData.json"))
+            {
+                string json = r.ReadToEnd();
+                books = JsonConvert.DeserializeObject<List<Book>>(json);
+            }
+            return books;
         }
     }
 }

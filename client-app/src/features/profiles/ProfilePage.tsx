@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom";
 import { Grid, Header, Item, Segment } from "semantic-ui-react";
 import LoadingComponent from "../../app/layout/LoadingComponents";
 import { useStore } from "../../app/stores/store";
-import ProfileContent from "./ProfileContent";
-import ProfileHeader from "./ProfileHeader";
 import UserBooks from "./UserBooks";
 
 export default observer(function ProfilePage() {
@@ -24,33 +22,25 @@ export default observer(function ProfilePage() {
 
     return (
         <>
-                    <Segment>
-            <Grid>
-                <Grid.Column textAlign="center">
-                    <Item.Group>
-                        <Item>
-                            <Item.Content verticalAlign='middle'>
-                                <Header as='h1' content='Saved Books' />
-                            </Item.Content>
-                        </Item>
-                    </Item.Group>
-                </Grid.Column>
-            </Grid>
-        </Segment>
-                <Segment>
-                    <Grid>
-            <Grid.Column width={16}>
-
+            <Segment>
+                <Grid>
+                    <Grid.Column textAlign="center">
+                        <Item.Group>
+                            <Item>
+                                <Item.Content verticalAlign='middle'>
+                                    <Header as='h1' content='Saved Books' />
+                                </Item.Content>
+                            </Item>
+                        </Item.Group>
+                    </Grid.Column>
+                </Grid>
+            </Segment>
+            <Segment>
                 {profile &&
                     <>
-                        
                         <UserBooks />
                     </>}
-            </Grid.Column>
-        </Grid>
-        </Segment>
+            </Segment>
         </>
-
-
     )
 })

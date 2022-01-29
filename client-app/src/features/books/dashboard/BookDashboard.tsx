@@ -1,12 +1,9 @@
 import { observer } from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
-import { Form, Grid, GridColumn, Header, List, Segment } from "semantic-ui-react";
+import { Form, Grid, Header, Segment } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
-import { Book } from "../../../app/models/book";
 import { useStore } from "../../../app/stores/store";
-import BookDetails from "../details/BookDetails";
-import BookList from "./BookList";
-import TitleListItem from "./TitleListItem";
+import SearchListItem from "./SearchListItem";
 
 export default observer(function BookDashboard() {
   const { bookStore } = useStore();
@@ -23,9 +20,9 @@ export default observer(function BookDashboard() {
 
   return (
     <>
-    <Segment>
+      <Segment>
         <Form>
-        <Header >Search:</Header>
+          <Header >Search:</Header>
           <Form.Field>
             <input
               placeholder="Enter a book title, author or ISBN"
@@ -34,22 +31,22 @@ export default observer(function BookDashboard() {
           </Form.Field>
         </Form>
       </Segment>
-<Grid>
-      <Grid.Column width="16">
-        {booksAdd
-          .filter((book) => {
-            if (query === "") {
-              return book;
-            } else if (book.title.toLowerCase().includes(query.toLowerCase()) || book.authors.toLowerCase().includes(query.toLowerCase()) || book.isbn.toLowerCase().includes(query.toLowerCase())) {
-              return book;
-            }
-          })
-          .map((book) => (
-            <TitleListItem key={book.id} book={book} />
-          ))}
-      </Grid.Column>
-    </Grid>
+      <Grid>
+        <Grid.Column width="16">
+          {booksAdd
+            .filter((book) => {
+              if (query === "") {
+                return book;
+              } else if (book.title.toLowerCase().includes(query.toLowerCase()) || book.authors.toLowerCase().includes(query.toLowerCase()) || book.isbn.toLowerCase().includes(query.toLowerCase())) {
+                return book;
+              }
+            })
+            .map((book) => (
+              <SearchListItem key={book.id} book={book} />
+            ))}
+        </Grid.Column>
+      </Grid>
     </>
-      
+
   );
 });

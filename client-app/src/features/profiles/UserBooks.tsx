@@ -16,12 +16,13 @@ export default observer(function ProfileActivities() {
   return (
       <Grid loading={loadingBooks}>
         <Grid.Column >
-          <Card.Group itemsPerRow={8}>
+          <Card.Group itemsPerRow={8} doubling={true}>
             {userBooks.map((book: UserBook) => (
               <Card
                 as={Link}
                 to={`/books/${book.id}`}
                 key={book.id}
+                color='blue'
               >
                 <Image
                   src={book.image_url}

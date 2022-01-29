@@ -7,14 +7,14 @@ import { useStore } from '../stores/store';
 export default observer(function NavBar() {
     const {userStore: {user, logout}} = useStore();
     return (
-        <Menu inverted fixed='top'>
+        <Menu borderless inverted fixed='top'>
             <Container>
                 <Menu.Item as={NavLink} to='/' exact header>
                     <img src="/assets/reade-logo.png" alt="logo" style={{marginRight: '10px'}}/>
                     Reade
                 </Menu.Item>
                 <Menu.Item as={NavLink} to='/books' name='Search' icon='search'/>
-                <Menu.Item as={NavLink} to='/grid' name='Browse books' icon='book'/>
+                <Menu.Item as={NavLink} to='/browse' name='Browse books' icon='book'/>
                 <Menu.Item as={NavLink} to={`/profiles/${user?.username}`} name='Saved Books' icon='bookmark'/>
                 <Menu.Item as={NavLink} to='/errors' name='Errors' />
                 <Menu.Item position='right'>
