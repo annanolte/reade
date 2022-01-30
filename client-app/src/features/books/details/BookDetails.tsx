@@ -42,13 +42,13 @@ export default observer(function BookDetails() {
                                 <label> ISBN:
                                     <span> {book.isbn}</span>
                                 </label>
-                                {book.isReading ? (
-                                    <Button loading={bookStore.loading} onClick={bookStore.updateReading} basic color='red' content='Remove from shelf' floated="right" />
-                                ) : (
-                                    <Button loading={bookStore.loading} onClick={bookStore.updateReading} basic color='blue' content='Add to shelf' floated="right" />
-                                )}
-                                <Button as={Link} to='/books' basic color='grey' content='Go back' floated="right" />
                             </Item.Extra>
+                            {book.isReading ? (
+                                <Button loading={bookStore.loading} onClick={bookStore.updateReading} basic color='red' content='Remove from shelf' floated="right" />
+                            ) : (
+                                <Button loading={bookStore.loading} onClick={bookStore.updateReading} basic color='blue' content='Add to shelf' floated="right" />
+                            )}
+                            <Button as={Link} to='/books' basic color='grey' content='Go back' floated="right" />
                         </Item.Content>
                     </Item>
                 </Item.Group>
