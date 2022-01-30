@@ -27,19 +27,11 @@ axios.interceptors.response.use(async response => {
         const {data, status, config} = error.response!;
         switch (status) {
             case 400:
+                if (typeof data === 'string') {
+                    toast.error(data);
+                }
                 if (config.method === 'get' && data.errors.hasOwnProperty('id')) {
                     history.push('/not-found');
-                }
-                if (data.errors) {
-                    const modalStateErrors = [];
-                    for (const key in data.errors) {
-                        if (data.errors[key]) {
-                            modalStateErrors.push(data.errors[key])
-                        }
-                    }
-                    throw modalStateErrors.flat();
-                } else {
-                    toast.error(data);
                 }
                 break;
             case 401:
@@ -60,15 +52,13 @@ const responseBody = <T> (response: AxiosResponse<T>) => response.data;
 
 const requests = {
     get: <T> (url: string) => axios.get<T>(url).then(responseBody),
-    post: <T> (url: string, body: {}) => axios.post<T>(url, body).then(responseBody),
-    put: <T> (url: string, body: {}) => axios.put<T>(url, body).then(responseBody),
-    del: <T> (url: string) => axios.delete<T>(url).then(responseBody)
+    post: <T> (url: string, body: {}) => axios.post<T>(url, body).then(responseBody)
 }
 
 const Books = {
     list: () => requests.get<Book[]>('/books'),
     details: (id: string) => requests.get<Book>(`/books/${id}`),
-    read: (id: string) => requests.post<void>(`/books/${id}/save`, {})
+    save: (id: string) => requests.post<void>(`/books/${id}/save`, {})
 }
 
 const Account = {

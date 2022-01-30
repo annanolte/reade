@@ -1,10 +1,10 @@
-import { Formik, Form, Field, FieldProps } from 'formik'
+import { Field, FieldProps, Form, Formik } from 'formik'
 import { observer } from 'mobx-react-lite'
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Segment, Header, Comment, Loader } from 'semantic-ui-react'
-import { useStore } from '../../../app/stores/store';
-import * as Yup from 'yup';
+import { Comment, Header, Loader, Segment } from 'semantic-ui-react'
+import * as Yup from 'yup'
+import { useStore } from '../../../app/stores/store'
 
 interface Props {
     bookId: string;
@@ -49,7 +49,7 @@ export default observer(function BookReviews({ bookId }: Props) {
                                     <div style={{ position: 'relative' }}>
                                         <Loader active={isSubmitting} />
                                         <textarea
-                                            placeholder='Enter your review (Enter to submit, SHIFT + enter for new line)'
+                                            placeholder='Write your review and press Enter to submit (press SHIFT + Enter for a new line)'
                                             rows={2}
                                             {...props.field}
                                             onKeyPress={e => {
@@ -76,7 +76,7 @@ export default observer(function BookReviews({ bookId }: Props) {
                                 <Comment.Author as={Link} to={`/profile/${comment.username}`}>
                                     {comment.username}
                                 </Comment.Author>
-                                <Comment.Text style={{ whiteSpace: 'pre-wrap' }}>{comment.body}</Comment.Text>
+                                <Comment.Text>{comment.body}</Comment.Text>
                             </Comment.Content>
                         </Comment>
                     ))}

@@ -5,7 +5,6 @@ import { Profile } from "../models/profile";
 import { store } from "./store";
 
 export default class BookStore {
-    /*books: Book[] = [];*/
     bookRegistry = new Map<string, Book>();
     selectedBook: Book | undefined = undefined;
     loading = false;
@@ -78,7 +77,7 @@ export default class BookStore {
         const user = store.userStore.user;
         this.loading = true;
         try {
-            await agent.Books.read(this.selectedBook!.id);
+            await agent.Books.save(this.selectedBook!.id);
             runInAction(() => {
                 if (this.selectedBook?.isReading) {
                     this.selectedBook.readers = this.selectedBook.readers?.filter(a => a.username !== user?.username);
@@ -94,8 +93,6 @@ export default class BookStore {
             console.log(error);
         } finally {
             runInAction(() => this.loading = false);
-        }
-        
+        }        
     }
-
 }

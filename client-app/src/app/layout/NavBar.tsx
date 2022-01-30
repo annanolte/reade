@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
-import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { Button, Container, Dropdown, Icon, Item, Menu } from 'semantic-ui-react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react';
 import { useStore } from '../stores/store';
 
 export default observer(function NavBar() {

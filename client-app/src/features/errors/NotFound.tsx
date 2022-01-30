@@ -11,7 +11,7 @@ export default function NotFound() {
             </Header>
             <Segment.Inline>
                 <Button as={Link} to='/books' primary>
-                    Return to books page
+                    Return to the search page
                 </Button>
             </Segment.Inline>
         </Segment>

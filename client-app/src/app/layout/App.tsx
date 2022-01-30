@@ -1,27 +1,21 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Button, Container, Header, List } from "semantic-ui-react";
-import { Book } from "../models/book";
-import NavBar from "./NavBar";
-import BookDashboard from "../../features/books/dashboard/BookDashboard";
-import agent from "../api/agent";
-import LoadingComponent from "./LoadingComponents";
-import { useStore } from "../stores/store";
 import { observer } from "mobx-react-lite";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import HomePage from "../../features/home/HomePage";
-import BookDetails from "../../features/books/details/BookDetails";
-import LoginForm from "../../features/users/LoginForm";
-import TestErrors from "../../features/errors/TestError";
 import { ToastContainer } from "react-toastify";
+import { Container } from "semantic-ui-react";
+import BookDashboard from "../../features/books/dashboard/BookDashboard";
+import BookDetails from "../../features/books/details/BookDetails";
+import BrowseDashboard from "../../features/browse/BrowseDashboard";
 import NotFound from "../../features/errors/NotFound";
 import ServerError from "../../features/errors/ServerError";
-import ModalContainer from "../common/modals/ModalContainer";
-import BookGrid from "../../features/browse/BrowseGrid";
-import BookGridDashboard from "../../features/browse/BrowseDashboard";
-import UserBooks from "../../features/profiles/UserBooks";
+import TestErrors from "../../features/errors/TestError";
+import HomePage from "../../features/home/HomePage";
 import ProfilePage from "../../features/profiles/ProfilePage";
+import ModalContainer from "../common/modals/ModalContainer";
+import { useStore } from "../stores/store";
+import LoadingComponent from "./LoadingComponents";
+import NavBar from "./NavBar";
 import PrivateRoute from "./PrivateRoute";
-import BrowseDashboard from "../../features/browse/BrowseDashboard";
 
 function App() {
   const { commonStore, userStore } = useStore();
@@ -47,7 +41,7 @@ function App() {
         render={() => (
           <>
             <NavBar />
-            <Container style={{ marginTop: "7em" }}>
+            <Container style={{ marginTop: "7em", marginBottom: '7em' }}>
               <Switch>
                 <PrivateRoute exact path="/books" component={BookDashboard} />
                 <PrivateRoute path="/books/:id" component={BookDetails} />

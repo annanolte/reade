@@ -6,8 +6,6 @@ body {
   background-image: linear-gradient(135deg, #051937, #004d7a, #008793, #00bf72, #a8eb12) !important;
 }
 
-/*home page styles*/
-
 .masthead {
   display: flex;
   align-items: center;
@@ -30,5 +28,6 @@ body {
   font-weight: normal;
 }
 
-/*end home page styles*/
-
+.ui.comments {
+  max-width: 1200px !important;
+}

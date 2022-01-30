@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Application.Books;
 using Application.Comments;
 using Application.Profiles;
-using AutoMapper;
 using Domain;
 
 namespace Application.Core

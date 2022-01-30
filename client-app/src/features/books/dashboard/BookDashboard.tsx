@@ -47,6 +47,5 @@ export default observer(function BookDashboard() {
         </Grid.Column>
       </Grid>
     </>
-
   );
 });
