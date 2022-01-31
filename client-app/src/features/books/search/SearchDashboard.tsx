@@ -5,7 +5,7 @@ import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
 import SearchListItem from "./SearchListItem";
 
-export default observer(function BookDashboard() {
+export default observer(function SearchDashboard() {
   const { bookStore } = useStore();
   const { loadBooks, bookRegistry } = bookStore;
   const [query, setQuery] = useState("");

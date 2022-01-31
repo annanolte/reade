@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Image } from "semantic-ui-react";
-import { Book } from "../../app/models/book";
+import { Book } from "../../../app/models/book";
 
 interface Props {
   book: Book;

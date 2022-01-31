@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Container } from "semantic-ui-react";
-import BookDashboard from "../../features/books/dashboard/BookDashboard";
+import BrowseDashboard from "../../features/books/browse/BrowseDashboard";
 import BookDetails from "../../features/books/details/BookDetails";
-import BrowseDashboard from "../../features/browse/BrowseDashboard";
+import SearchDashboard from "../../features/books/search/SearchDashboard";
 import NotFound from "../../features/errors/NotFound";
 import ServerError from "../../features/errors/ServerError";
 import TestErrors from "../../features/errors/TestError";
@@ -43,7 +43,7 @@ function App() {
             <NavBar />
             <Container style={{ marginTop: "7em", marginBottom: '7em' }}>
               <Switch>
-                <PrivateRoute exact path="/books" component={BookDashboard} />
+                <PrivateRoute exact path="/books" component={SearchDashboard} />
                 <PrivateRoute path="/books/:id" component={BookDetails} />
                 <PrivateRoute path="/browse" component={BrowseDashboard} />
                 <PrivateRoute path='/profile/:username' component={ProfilePage} />
