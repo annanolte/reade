@@ -12,19 +12,19 @@
 
 ## Overview of the interface
 ### Home page 
-![image](https://github.com/annanolte/reade/assets/103070558/fe57ca4c-2b53-46be-b213-01aa10b5334b)
+![image](https://github.com/annanolte/reade/assets/103070558/f3dd1dd6-3642-4d88-bc42-81c0296f29ae)
 
 ### Navigation bar 
-![image](https://github.com/annanolte/reade/assets/103070558/15f6984c-b6f0-446e-b4c7-360cc64fc8ab)
+![image](https://github.com/annanolte/reade/assets/103070558/a6eb5804-8b41-45e8-9aaa-ab66bced1f96)
 
 ### Search Dashboard 
-![image](https://github.com/annanolte/reade/assets/103070558/c7eb83ed-e017-4121-938a-7107a7cf6bb4)
+![image](https://github.com/annanolte/reade/assets/103070558/2c74bd83-8fdd-498d-999c-524e42bb1e00)
 
 ### Book Details Page 
-![image](https://github.com/annanolte/reade/assets/103070558/922b2a74-51c4-4b83-b299-8475a17c386a)
+![image](https://github.com/annanolte/reade/assets/103070558/e65d4607-3486-4cd3-907b-db599067b11b)
 
 ### Browse Dashboard 
-![image](https://github.com/annanolte/reade/assets/103070558/0897386a-c07b-403f-baf2-9ac3c72f8e57)
+![image](https://github.com/annanolte/reade/assets/103070558/9f2b9b21-1c6d-4ecf-9ef5-360ad4c91257)
 
 ### Profile Page 
-![image](https://github.com/annanolte/reade/assets/103070558/ed667860-80ac-44a5-aa2b-375807a283dc)
+![image](https://github.com/annanolte/reade/assets/103070558/dfa6912f-cb5d-4d19-b74d-c29c834caf96)
